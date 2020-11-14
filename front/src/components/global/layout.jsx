@@ -15,9 +15,7 @@ import Transition from "#components/global/transition"
 
 // Styles
 import GlobalStyle from "#context/global-styles"
-import "#static/fonts/basier/font-face.css"
-// import "#static/fonts/maison-neue/font-face.css"
-// import "#static/fonts/nitti-grotesk/font-face.css"
+import "#static/fonts/tw-cen-mt/font-face.css"
 
 
 // ============================================================================================================ Logic

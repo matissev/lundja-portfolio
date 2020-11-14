@@ -9,7 +9,6 @@ import useFilterLocale from '#hooks/useFilterLocale'
 // Components
 import Heading from './heading'
 import Job from './job'
-import MuteButton from './mute-button'
 import Nav from './nav'
 import InfosLink from './infos-link'
 
@@ -27,7 +26,6 @@ const Header = ({ className }) => {
       <$Job>
         {website.job}
       </$Job>
-      <$MuteButton/>
       <$Nav>
         <InfosLink/>
       </$Nav>
@@ -97,37 +95,6 @@ const $Job = styled(Job)`
 
   @media (max-width: 450px) {
     top: calc(var(--l-rh3) + var(--l-rh0_5));
-  }
-`
-
-const $MuteButton = styled(MuteButton)`
-  ${cssHeaderElements}
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-
-  @media (max-width: 540px) {
-    position: static;
-    transform: none;
-    margin-left: auto;
-  }
-
-  @media (max-width: 450px) {
-    font-size: var(--fs-xs);
-
-    &.on, &.off {
-      font-size: var(--fs-m);
-    }
-  }
-
-  @media (max-width: 300px) {
-    font-size: var(--fs-xxs);
-
-    &.on, &.off {
-      font-size: var(--fs-m);
-    }
-    padding: 0;
-    content: "Audio Off";
   }
 `
 

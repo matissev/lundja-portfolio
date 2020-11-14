@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
         --c-audio-btn-start: var(--color-primary-text);
 
         // Fonts
-        --font-family-body: "Basier Circle", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        --font-family-body: "Tw Cen MT", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
         --fs-xxs: 0.5rem;
         --fs-xs: 0.8rem;
         --fs-s: 0.9rem;
@@ -98,6 +98,10 @@ const GlobalStyle = createGlobalStyle`
             --layout-margin: var(--l-rh0_5);
             --l-m: var(--layout-margin);
         }
+    }
+
+    button {
+        font-family: var(--ff-body);
     }
 
     a {
