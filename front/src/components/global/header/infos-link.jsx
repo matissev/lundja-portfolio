@@ -1,6 +1,5 @@
 // Libraries
 import React, { useContext } from "react"
-import Helmet from 'react-helmet'
 import styled from "styled-components"
 import { Link, navigate } from "gatsby-plugin-react-intl";
 
@@ -25,7 +24,6 @@ const InfosLink = () => {
 
     return (
         <>
-            <Helmet bodyAttributes={{class: isPageInfos ? 'openInfos' : ""}}/>
             {isPageInfos === true
                 ? <CloseButton to="/" onClick={(e) => closeInfos(e, state.infosReturnPage)}><span>Close</span></CloseButton>
                 : <Link to="/infos" onClick={() => {
@@ -33,7 +31,7 @@ const InfosLink = () => {
                         type: 'CHANGE_INFOS_RETURN_PAGE',
                         returnPage: location.noLocalePath
                     })
-                }}>Infos</Link>
+                }}>Informations</Link>
             }
         </>
     )

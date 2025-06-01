@@ -23,6 +23,8 @@ const $Heading = styled(Heading)`
   font-weight: 500;
   display: block;
   overflow: hidden;
+  font-size: var(--fs-s);
+  font-weight: bold;
 `
 
 export default $Heading

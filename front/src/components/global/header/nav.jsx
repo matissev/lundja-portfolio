@@ -18,6 +18,7 @@ const Nav = ({ className, children }) => {
 
 const $Nav = styled(Nav)`
   padding: 0 var(--l-rh0_5);
+  font-size: var(--fs-s);
 
   a {
     display: block;

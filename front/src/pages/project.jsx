@@ -1,7 +1,6 @@
 // Library
 import React from "react"
-import Helmet from 'react-helmet'
-import styled, { createGlobalStyle, css } from "styled-components"
+import styled from "styled-components"
 import { graphql } from "gatsby"
 
 // Hooks
@@ -27,7 +26,6 @@ const ProjectPage = ({ data, pageContext }) => {
 
   return (
     <>
-      <Helmet bodyAttributes={{class: 'openProject'}}/>
       <SEO
         title={project.title}
         description={project.brief}
@@ -37,15 +35,12 @@ const ProjectPage = ({ data, pageContext }) => {
           alt: project.preview.alt
         }}
       />
-      <ColorScheme colorscheme={project.color_scheme}/>
       <BackButton route="/"/>
       <$Heading title={project.title}/>
       <$Brief text={project.brief}/>
       <$MainMedia main_media={project.main_media[0]}/>
       <Content components={project.content} />
       <$Footer description={project.description} tags={project.tags}/>
-      <$ContactButton/>
-      <$Social social={infos.social}/>
     </>
   )
 }
@@ -221,29 +216,6 @@ const $Footer = styled(Footer)`
     dl {
       grid-column: 2 / span 10;
     }
-  }
-`
-
-const ColorScheme = createGlobalStyle`
-  .openProject {
-    ${props => props.colorscheme && props.colorscheme.primary_text && css`
-      --color-primary-text: ${props => props.colorscheme.primary_text};
-    `}
-    ${props => props.colorscheme && props.colorscheme.secondary_text && css`
-      --color-secondary-text: ${props => props.colorscheme.secondary_text};
-    `}
-    ${props => props.colorscheme && props.colorscheme.background && css`
-      --color-background: ${props => props.colorscheme.background};
-    `}
-    ${props => props.colorscheme && props.colorscheme.section_primary_text && css`
-      --color-section-primary-text: ${props => props.colorscheme.section_primary_text};
-    `}
-    ${props => props.colorscheme && props.colorscheme.section_secondary_text && css`
-      --color-section-secondary-text: ${props => props.colorscheme.section_secondary_text};
-    `}
-    ${props => props.colorscheme && props.colorscheme.section_background && css`
-      --color-section-background: ${props => props.colorscheme.section_background};
-    `}
   }
 `
 

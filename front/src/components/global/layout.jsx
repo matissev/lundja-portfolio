@@ -10,7 +10,6 @@ import { LocationContextProvider } from '#context/location-context'
 import Grid from "#components/utils/grid"
 import Head from "./head"
 import Header from "./header/header"
-import LangSelector from "./lang-selector"
 import Transition from "#components/global/transition"
 
 // Styles
@@ -28,7 +27,6 @@ const Layout = ({ children, location }) => {
             <GlobalStyle />
             <Head />
             <Header/>
-            <LangSelector />
             <Transition>
               <Main>
                 {children}

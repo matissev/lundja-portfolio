@@ -12,9 +12,6 @@ import Tags from "#components/project/tags"
 const Footer = ({ className, tags, description }) => {
     return (
         <div className={className}>
-            <MarkDown className="markdown">
-              <ReactMarkdown source={description} />
-            </MarkDown>
             <Tags tags={tags}/>
         </div>
     )

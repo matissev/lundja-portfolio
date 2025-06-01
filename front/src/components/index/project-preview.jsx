@@ -1,7 +1,7 @@
 // Libraries
 import React from "react"
 import { Link } from "gatsby-plugin-react-intl";
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import Img from "gatsby-image"
 
 
@@ -9,14 +9,12 @@ import Img from "gatsby-image"
 
 const ProjectPreview = ({ project, className }) => {
   return (
-    <div className={className} offset={project.layout.top_offset}>
-      <$Link to={`/` + project.slug} layout={project.layout}>
-        <Preview>
-          <Img className='Img' fluid={project.preview.visual.imageFile.childImageSharp.fluid}/>
-          <h2>{project.title}</h2>
-        </Preview>
-      </$Link>
-    </div>
+    <Link className={className} to={`/` + project.slug} layout={project.layout}>
+      <Preview>
+        <h2>{project.title}</h2>
+        <Img className='Img' fluid={project.preview.visual.imageFile.childImageSharp.fluid}/>
+      </Preview>
+    </Link>
   )
 }
 
@@ -24,33 +22,16 @@ const ProjectPreview = ({ project, className }) => {
 // ============================================================================================================ Styles
 
 const $ProjectPreview = styled(ProjectPreview)`
-  grid-column: 1 / span 12;
-  display: grid;
-  grid-template-columns: repeat(var(--l-c), minmax(0, 1fr));
-  grid-gap: var(--l-gw);
+  /* width: 200px;
+  display: inline-block; */
 
   &:last-of-type {
     margin-bottom: var(--l-brh);
   }
 
-  ${({ project }) => {
-    const offset = project.layout.top_offset
-    return css`
-      margin-top: calc(${offset} * 8vw);
-    `
-  }}
-
   @media (max-width: 750px) {
     margin-top: var(--l-rh2);
   }
-`
-
-const $Link = styled(Link)`
-  ${({ layout }) => {
-    return css`
-      grid-column: ${layout.first_column} / span ${layout.width};
-    `
-  }}
 
   @media (max-width: 750px) {
     grid-column: 1 / span 12;
@@ -58,20 +39,39 @@ const $Link = styled(Link)`
 `
 
 const Preview = styled.article`
+  line-height: var(--l-rh2);
   width: 100%;
 
+  &:hover .Img {
+		filter: brightness(0.8);
+	}
+
   .Img {
+    filter: brightness(1);
+	  transition: filter 0.3s ease-in-out;
     width: 100%;
   }
 
   h2 {
-    /* margin-top: calc(var(--l-rh));
-    font-size: var(--fs-xl);
-    font-weight: 600; */
+    margin: var(--l-rh0_25) 0 calc(var(--l-rh0_25) + var(--l-rh0_5)) 0;
+    font-weight: normal;
+		font-size: var(--fs-l);
+  }
+`
 
-    margin-top: calc(var(--l-rh) + var(--l-rh0_125));
-    font-size: var(--fs-m);
-    font-weight: 500;
+const Category = styled.p`
+  display: inline-block;
+  font-size: var(--fs-m);
+  margin: 0;
+  margin-bottom: calc(var(--l-rh0_25) + var(--l-rh0_125) / 2);
+
+  &:before, &:after {
+    font-size: var(--fs-l);
+    content: "[";
+  }
+
+  &:after {
+    content: "]";
   }
 `
 

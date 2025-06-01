@@ -11,6 +11,9 @@ import Bio from "#components/infos/bio"
 import Social from "#components/infos/social"
 import ContactButton from "#components/infos/contact-button"
 import SEO from "#components/global/seo"
+import InfosTags from "#components/infos/infos-tags"
+import Lead from "#components/infos/lead"
+
 
 
 // ============================================================================================================ Logic
@@ -21,15 +24,22 @@ const InfosPage = ({ data }) => {
   return (
     <>
       <SEO title="Infos"/>
+      <$Lead lead={infos.lead}/>
       <$Bio bio={infos.bio}/>
-      <$ContactButton />
-      <$Social social={infos.social}/>
+      <$InfosTags tags={infos.tags}/>
+      <$Social social={infos.social}>
+        <$ContactButton />
+      </$Social>
     </>
   )
 }
 
 
 // ============================================================================================================ Styles
+
+const $Lead = styled(Lead)`
+  grid-column: 2 / span 10;
+`
 
 const $Bio = styled(Bio)`
   grid-column: 2 / span 10;
@@ -68,8 +78,7 @@ const $Bio = styled(Bio)`
 `
 
 const $ContactButton = styled(ContactButton)`
-  margin-top: var(--l-rh3);
-  grid-column: 2 / span 2;
+  margin-top: calc(-1 * var(--l-rh0_25));
 
   @media (max-width: 1500px) {
     grid-column: 2 / span 3;
@@ -100,23 +109,14 @@ const $ContactButton = styled(ContactButton)`
   }
 `
 
+const $InfosTags = styled(InfosTags)`
+  grid-column: 2 / span 4;
+  line-height: var(--l-rh2);
+`
+
 const $Social = styled(Social)`
-  display: grid;
-  grid-gap: var(--l-gw);
-  grid-column: 2 / span 10;
-  grid-template-columns: repeat(10, minmax(0, 1fr));
-
-  p {
-    grid-column: span 2;
-    margin-top: var(--l-rh4);
-    margin-bottom: calc(var(--l-rh4) + var(--l-rh0_5) - var(--l-rh0_125));
-
-    a:before, a:after {
-      content:' ';
-      display: block;
-      height: 0;
-    }
-  }
+  grid-column: 7 / span 5;
+  float: left;
 
   @media (max-width: 1500px) {
     p {
@@ -168,12 +168,15 @@ export const query = graphql`
       info {
         bio_fr
         bio_en
+        lead_fr
+        lead_en
+        tags {
+          id
+          tag_fr
+          tag_en
+        }
         social {
-          intro_fr
-          intro_en
           media_name
-          outro_fr
-          outro_en
           url_fr
           url_en
         }

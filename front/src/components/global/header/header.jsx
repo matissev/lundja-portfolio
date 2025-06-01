@@ -8,6 +8,7 @@ import useFilterLocale from '#hooks/useFilterLocale'
 
 // Components
 import Heading from './heading'
+import LangSelector from './lang-selector'
 import Job from './job'
 import Nav from './nav'
 import InfosLink from './infos-link'
@@ -29,6 +30,7 @@ const Header = ({ className }) => {
       <$Nav>
         <InfosLink/>
       </$Nav>
+      {/* <$LangSelector /> */}
     </header>
   )
 }
@@ -44,9 +46,10 @@ const $Header = styled(Header)`
   z-index: 3;
   top: 0;
   padding-top: var(--l-rh1_5);
+  padding-bottom: var(--l-rh1_5);
   left: 0;
   width: 100%;
-  font-size: var(--fs-m);
+  background: var(--c-bg);
 
   @media (max-width: 540px) {
     position: absolute;
@@ -63,6 +66,7 @@ const cssHeaderElements = `
 
 const $Heading = styled(Heading)`
   ${cssHeaderElements}
+  line-height: var(--l-rh2);
   margin-left: calc(var(--l-m) - var(--l-rh0_5));
   @media (max-width: 450px) {
     margin-left: calc(var(--l-m) + var(--l-rh0_5));
@@ -81,10 +85,6 @@ const $Job = styled(Job)`
     top: calc(var(--l-rh4) + var(--l-rh0_5));
     left: 0;
     padding: 0;
-
-    .openInfos &, .openProject & {
-      display: none;
-    }
   }
 
   @media (min-width: 540px) {
@@ -106,6 +106,12 @@ const $Nav = styled(Nav)`
   @media (max-width: 450px) {
     margin-right: calc(var(--l-m) + var(--l-rh0_5));
   }
+`
+
+const $LangSelector = styled(LangSelector)`
+  margin-right: calc(var(--l-m) - var(--l-rh0_5));
+  ${cssHeaderElements}
+  float: right;
 `
 
 

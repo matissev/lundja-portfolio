@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_infos_infos_tags",
+  "info": {
+    "name": "infos_tags",
+    "icon": "user-tag"
+  },
+  "options": {},
+  "attributes": {
+    "tag_fr": {
+      "type": "string",
+      "required": true
+    },
+    "tag_en": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

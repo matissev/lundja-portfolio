@@ -64,10 +64,6 @@ const LangSelector = ({ className }) => {
 // ============================================================================================================ Styles
 
 const $LangSelector = styled(LangSelector)`
-    position: fixed;
-    z-index: 3;
-    bottom: var(--l-m);
-    right: var(--l-m);
     transition: background 0.2s ease-out, color 0.2s ease-out;
 
     button {
@@ -87,14 +83,12 @@ const $LangSelector = styled(LangSelector)`
         cursor: default;
         &:before {
           display: inline-block;
-          transform: translateY(-1px);
-          content: "["
+          content: "|"
         }
 
         &:after {
           display: inline-block;
-          transform: translateY(-1px);
-          content: "]"
+          content: "|"
         }
       }
     }

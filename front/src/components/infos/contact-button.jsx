@@ -1,11 +1,9 @@
 // Libraries
 import React, { useState, useContext } from 'react'
+import styled from 'styled-components'
 
 // Context
 import i18nContext from '#context/i18n-context'
-
-// Components
-import Button from '#components/global/button'
 
 // Lazy
 const Email = React.lazy(() =>
@@ -23,10 +21,10 @@ function ContactButton({ className }) {
   return (
     <>
       {!isSSR && (
-        <React.Suspense fallback={<Button className={className}>{i18n.format({ id: "loading" })}</Button>}>
+        <React.Suspense fallback={<button className={className}>{i18n.format({ id: "loading" })}</button>}>
           {showingEmail
             ? <Email className={className}/>
-            : <Button className={className} onClick={() => setShowingEmail(true)}>{i18n.format({ id: "infos.contactButtonLabel" })}</Button>
+            : <button className={className} onClick={() => setShowingEmail(true)}>{i18n.format({ id: "infos.contactButtonLabel" })}</button>
           }
         </React.Suspense>
       )}
@@ -34,4 +32,18 @@ function ContactButton({ className }) {
   )
 }
 
-export default ContactButton
+// ============================================================================================================ Styles
+
+const $ContactButton = styled(ContactButton)`
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    line-height: var(--l-rh2);
+    overflow: visible;
+    color: var(--c-txt1);
+    font-size: var(--fs-l);
+    cursor: pointer;
+`
+
+export default $ContactButton

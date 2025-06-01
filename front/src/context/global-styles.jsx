@@ -24,26 +24,23 @@ const GlobalStyle = createGlobalStyle`
 
         // Fonts
         --font-family-body: "Tw Cen MT", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-        --fs-xxs: 0.5rem;
+        /* --fs-xxs: 0.5rem;
         --fs-xs: 0.8rem;
         --fs-s: 0.9rem;
         --fs-m: 1rem;
         --fs-l: 1.25rem;
-        --fs-xl: 1.7rem;
+        --fs-xl: 1.5rem; */
+
+        --fs-xxs: 0.8rem;
+        --fs-xs: 1rem;
+        --fs-s: 1.5rem;
+        --fs-m: 1.6rem;
+        --fs-l: 2.5rem;
+        --fs-xl: 1.5rem;
+
     }
 
-    .openInfos {
-        // --------- Infos Theme
-        // ---------------------
-
-        // Colors
-        --color-primary-text: white;
-        --color-secondary-text: #7F7F7F;
-        --color-background: #262626;
-        --c-audio-btn-start: white;
-    }
-
-    :root, .openInfos, .openProject {
+    :root {
         // ----- Alias & Helpers
         // ---------------------
 

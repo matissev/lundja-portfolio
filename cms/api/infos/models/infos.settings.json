@@ -19,6 +19,17 @@
     },
     "bio_fr": {
       "type": "richtext"
+    },
+    "lead_fr": {
+      "type": "text"
+    },
+    "lead_en": {
+      "type": "text"
+    },
+    "tags": {
+      "type": "component",
+      "repeatable": true,
+      "component": "infos.infos-tags"
     }
   }
 }
